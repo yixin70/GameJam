@@ -13,12 +13,12 @@ GameObject:
   - component: {fileID: 898521318569577701}
   - component: {fileID: 7000442888808787244}
   - component: {fileID: 5471794982155917052}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Banana
   m_TagString: Fruit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2095643844503303495
 Transform:
@@ -73,8 +73,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1647926269
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: -5728686177044832811, guid: b1f24b3bc2e2f1d4b858657ad5c115a0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

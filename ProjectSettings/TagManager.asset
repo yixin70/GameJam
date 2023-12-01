@@ -13,10 +13,10 @@ TagManager:
   - Player
   - Water
   - UI
+  - Background
   - Ground
-  - 
-  - 
-  - 
+  - Obstacle
+  - Fruit
   - 
   - 
   - 
@@ -43,10 +43,10 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: BackGround
+  - name: Background
     uniqueID: 4093772703
     locked: 0
-  - name: ForeGround
+  - name: Ground
     uniqueID: 3793723773
     locked: 0
   - name: Player
@@ -54,4 +54,10 @@ TagManager:
     locked: 0
   - name: Top
     uniqueID: 4027051925
+    locked: 0
+  - name: Obstacle
+    uniqueID: 2453579285
+    locked: 0
+  - name: Fruit
+    uniqueID: 1647926269
     locked: 0

@@ -13,12 +13,12 @@ GameObject:
   - component: {fileID: 8979039439431649068}
   - component: {fileID: 630052617069916959}
   - component: {fileID: 9119859724302030321}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Strawberry
   m_TagString: Fruit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3480135658405020464
 Transform:
@@ -73,8 +73,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1647926269
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 1775669009216684005, guid: a2c110585eb710b408972fbc3b96136d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
