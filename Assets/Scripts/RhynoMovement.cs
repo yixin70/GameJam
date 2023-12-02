@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMovement : MonoBehaviour
+public class RhynoMovement : MonoBehaviour
 {
     public Vector2 movementVector = new Vector2(5f, 0f);
 

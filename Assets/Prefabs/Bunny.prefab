@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8718601306558897632}
   - component: {fileID: 4614014400892585533}
   - component: {fileID: 4918798866837429495}
+  - component: {fileID: -5757934751866444805}
   m_Layer: 0
   m_Name: Bunny
   m_TagString: Untagged
@@ -106,3 +107,16 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-5757934751866444805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7771975982700912557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea84af7fb603e4e4aa7d7ebca74b0a3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementVector: {x: 5, y: 0}
