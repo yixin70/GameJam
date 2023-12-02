@@ -1,52 +1,62 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public Vector2 movementVector = new Vector2(10f, 10f);
-    public float period = 2f;
-    public bool isStop = false;
+    public Vector2 movementVector = new Vector2(10f, 0f);
+
+    private Tuple<float, float> _limit;
+    private bool _hasChangedRecently = false;
+    private float _offset = 0.1f;
+
     private float speedFactor = 2f;
-    private bool facingRight;
-
-    public float movementFactor; // 0 for not moved, 1 for fully moved.
-
     Vector3 startingPos;
 
     void Start()
     {
         startingPos = transform.position;
+        FlipHorizontally();
+        //Item1 Will be LeftLimit and Item2 RightLimit
+        _limit = new Tuple<float, float>(startingPos.x - movementVector.x + _offset, startingPos.x + movementVector.x - _offset);
+
     }
 
     void Update()
     {
-        movement();
-
-
+        Movement();
     }
 
-    void movement() {
+    void Movement()
+    {
 
-        movementFactor = Mathf.Sin(Time.time * speedFactor);
+        float movementFactor = Mathf.Sin(Time.time * speedFactor);
         Vector3 offset = movementVector * movementFactor;
         transform.position = startingPos + offset;
+
+        if ((_limit.Item1 >= transform.position.x || _limit.Item2 <= transform.position.x) && !_hasChangedRecently)
+        {
+            _hasChangedRecently = true;
+            FlipHorizontally();
+        }
+
+        if (_hasChangedRecently)
+            StartCoroutine(WaitXTimeBeforeFlippingHorizontally());
         
     }
+
+    IEnumerator WaitXTimeBeforeFlippingHorizontally()
+    {
+        yield return new WaitForSeconds(1.0f);
+        _hasChangedRecently = false;
+    }
+
     void FlipHorizontally()
     {
-        facingRight = !facingRight;
         Vector2 Scaler = transform.localScale;
         Scaler.x *= -1;
         transform.localScale = Scaler;
-    }
-
-    void detectDirection(float movementFactor , float movementFactorNew) {
-        if (movementFactorNew > movementFactor)
-            facingRight = false;
-        else facingRight = true;
-
-     
     }
 
 }
