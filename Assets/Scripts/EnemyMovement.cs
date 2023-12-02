@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public Vector2 movementVector = new Vector2(10f, 0f);
+    public Vector2 movementVector = new Vector2(5f, 0f);
 
     private Tuple<float, float> _limit;
     private bool _hasChangedRecently = false;
     private float _offset = 0.1f;
 
-    private float speedFactor = 2f;
+    private float speedFactor = 0.5f;
     Vector3 startingPos;
 
     void Start()
