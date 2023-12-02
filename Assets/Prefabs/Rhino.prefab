@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2221939306483625246}
   - component: {fileID: 3135347300212312598}
   - component: {fileID: 7076900778290947870}
+  - component: {fileID: 730394534882663588}
   m_Layer: 0
   m_Name: Rhino
   m_TagString: Enemy
@@ -152,3 +153,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.495256, y: 1.7573037}
   m_EdgeRadius: 0
+--- !u!114 &730394534882663588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7133699276011309889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 908dfaeae88842642855d65016bc3717, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementVector: {x: 10, y: 10}
+  period: 2
+  isStop: 0
+  movementFactor: 0
