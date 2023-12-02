@@ -4,58 +4,57 @@ using UnityEngine;
 using System;
 
 public class BunnyMovement : MonoBehaviour
-{
-
-    public Vector2 movementVector = new Vector2(5f, 0f);
-
-    private Tuple<float, float> _limit;
-    private bool _hasChangedRecently = false;
-    private float _offset = 0.1f;
-
-    private float _speedFactor = 0.5f;
-    private Vector3 _startingPos;
+{ 
+    
+    private Rigidbody2D rb;
+    private float jumpForce = 100000000000000;
+    float elapsedTime = 0;
+    public float speed; 
 
     void Start()
     {
-        _startingPos = transform.position;
-        _FlipHorizontally();
-        //Item1 Will be LeftLimit and Item2 RightLimit
-        _limit = new Tuple<float, float>(_startingPos.x - movementVector.x + _offset, _startingPos.x + movementVector.x - _offset);
+         rb = GetComponent<Rigidbody2D>();
+        
     }
 
     void Update()
     {
+        intervalo();
         _Movement();
+        
     }
-
+    private void intervalo() {
+        elapsedTime += Time.deltaTime;
+        _Movement();
+        if (elapsedTime >= 1.5f)
+        {
+            _ChangeDirecction();
+            elapsedTime = 0;
+            _FlipHorizontally();
+            Jump();
+        }
+         
+    } 
+    private void _ChangeDirecction() {
+        speed *= -1;
+    }
     private void _Movement()
     {
-        float movementFactor = 2.0f;
-        Vector3 offset = movementVector * movementFactor;
-        transform.position = _startingPos + offset;
-
-        if ((_limit.Item1 >= transform.position.x || _limit.Item2 <= transform.position.x) && !_hasChangedRecently)
-        {
-            _hasChangedRecently = true;
-            _FlipHorizontally();
-        }
-
-        if (_hasChangedRecently)
-            StartCoroutine(_WaitXTimeBeforeFlippingHorizontally());
-
+         
+        rb.velocity = new Vector2(speed, 0);
     }
-
-    private IEnumerator _WaitXTimeBeforeFlippingHorizontally()
+    
+    
+    private void Jump()
     {
-        yield return new WaitForSeconds(1.0f);
-        _hasChangedRecently = false;
-    }
+        Debug.Log("Jumped");
+        rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
 
+    }
     private void _FlipHorizontally()
     {
         Vector2 Scaler = transform.localScale;
         Scaler.x *= -1;
         transform.localScale = Scaler;
     }
-
 }
