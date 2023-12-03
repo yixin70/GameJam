@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 1525508455154746802}
   - component: {fileID: 2221939306483625246}
   - component: {fileID: 3135347300212312598}
-  - component: {fileID: 7076900778290947870}
   - component: {fileID: -3484639471709075605}
+  - component: {fileID: 4959401450738761836}
   m_Layer: 0
   m_Name: Rhino
   m_TagString: Enemy
@@ -108,7 +108,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!61 &7076900778290947870
+--- !u!114 &-3484639471709075605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7133699276011309889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 908dfaeae88842642855d65016bc3717, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementVector: {x: 5, y: 0}
+--- !u!61 &4959401450738761836
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,7 +153,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.009676456, y: -0.18384814}
+  m_Offset: {x: 0.03584802, y: -0.24297082}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -151,18 +164,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.495256, y: 1.7573037}
+  m_Size: {x: 2.3020155, y: 1.6390584}
   m_EdgeRadius: 0
---- !u!114 &-3484639471709075605
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7133699276011309889}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 908dfaeae88842642855d65016bc3717, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementVector: {x: 5, y: 0}

@@ -14,16 +14,22 @@ public class BunnyMovement : MonoBehaviour
     private MyPhysics2D physics;
 
     private bool _hasJumped = false;
+    private Animator animator; 
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         physics = GetComponent<MyPhysics2D>();
         speed = 0.5f;
+        animator = GetComponent<Animator>();
+        _FlipHorizontally();    
     }
 
     void Update()
     {
         _Intervalo();
+        SwitchAnimation();
     }
     private void _Intervalo()
     {
@@ -84,4 +90,32 @@ public class BunnyMovement : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         _hasJumped = false;
     }
+
+    private void SwitchAnimation()
+    {
+
+        if (rb.velocity.y < 0)
+        {
+            this.animator.SetBool("jumping", false);
+           this.animator.SetBool("falling", true);
+           this.animator.SetBool("isGrounded", false);
+       }
+       else if (rb.velocity.y > 0)
+       {
+           this.animator.SetBool("jumping", true);
+           this.animator.SetBool("falling", false);
+           this.animator.SetBool("isGrounded", false);
+       }
+       if (physics.isGround)
+       {
+           this.animator.SetBool("jumping", false);
+           this.animator.SetBool("falling", false);
+           this.animator.SetBool("isGrounded", true);
+       }            
+
+
+    }
+
+
+
 }
