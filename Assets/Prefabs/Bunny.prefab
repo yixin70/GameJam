@@ -208,8 +208,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGround: 0
-  checkGroundRadius: 0
-  checkGroundOffset: {x: 0, y: 0}
+  checkGroundRadius: 0.02
+  checkGroundOffset: {x: 0, y: -0.16}
   groundLayer:
     serializedVersion: 2
     m_Bits: 0
