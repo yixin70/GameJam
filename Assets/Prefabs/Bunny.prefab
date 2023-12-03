@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -5757934751866444805}
   - component: {fileID: -7400282243791725938}
   - component: {fileID: 944590575895289130}
+  - component: {fileID: -4758924517033737160}
   m_Layer: 0
   m_Name: Bunny
   m_TagString: Untagged
@@ -121,7 +122,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea84af7fb603e4e4aa7d7ebca74b0a3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementVector: {x: 5, y: 0}
   speed: 0
 --- !u!50 &-7400282243791725938
 Rigidbody2D:
@@ -139,7 +139,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 3e9e3114c883c9340871b65d32574cab, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -195,3 +195,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.125, y: 2.75}
   m_EdgeRadius: 0
+--- !u!114 &-4758924517033737160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7771975982700912557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6238cd8efc5a9443bb5ae1836b73c13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGround: 0
+  checkGroundRadius: 0
+  checkGroundOffset: {x: 0, y: 0}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
