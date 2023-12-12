@@ -11,6 +11,6 @@ public class StartMenu : MonoBehaviour
 
     IEnumerator nextScene(){
         yield return new WaitForSeconds(0.5f);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+        SceneManager.LoadScene(1);
     }
 }
