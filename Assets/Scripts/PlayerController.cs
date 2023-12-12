@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
     private void ChangScale()
     {
         if (transform.localScale.x == scale.x) return;
-        transform.localScale = Vector3.MoveTowards(transform.localScale, scale, Time.deltaTime);
+        transform.localScale = Vector3.MoveTowards(transform.localScale, scale, 4 * Time.deltaTime);
         jumpForce=initialJumpForce*scale.x;
         moveSpeed=initialMoveSpeed*scale.x;
         rb.mass = 1+scale.x/4;
