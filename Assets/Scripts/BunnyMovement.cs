@@ -68,8 +68,7 @@ public class BunnyMovement : MonoBehaviour
 
     private void _Jump()
     {
-        Debug.Log("Jumped");
-
+        
         if (!_hasJumped)
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
