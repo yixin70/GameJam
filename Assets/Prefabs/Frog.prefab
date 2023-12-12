@@ -208,7 +208,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  groundMaterial: {fileID: 6200000, guid: 3e9e3114c883c9340871b65d32574cab, type: 2}
+  groundMaterial: {fileID: 0}
 --- !u!114 &4492996240860997854
 MonoBehaviour:
   m_ObjectHideFlags: 0
