@@ -169,6 +169,74 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 }
             ]
+        },
+        {
+            ""name"": ""Consume"",
+            ""id"": ""8b364c6c-a92a-4549-9b66-b16ea57f10d1"",
+            ""actions"": [
+                {
+                    ""name"": ""Consume1"",
+                    ""type"": ""Button"",
+                    ""id"": ""915c9959-2ea1-48e3-9a7d-7fe1e0bbd75e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Consume2"",
+                    ""type"": ""Button"",
+                    ""id"": ""663d9551-77f6-469a-85f3-1317e78bb550"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Consume3"",
+                    ""type"": ""Button"",
+                    ""id"": ""2ab092db-57dd-47cd-a6f2-728b83a347f6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""0395c147-c59c-4628-a823-71d1813f3b70"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Consume1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""57dd8a9b-2c38-491b-bca7-eb76d325069f"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Consume2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""62f94570-919a-474d-88df-12b38245c653"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Consume3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -177,6 +245,11 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
+        // Consume
+        m_Consume = asset.FindActionMap("Consume", throwIfNotFound: true);
+        m_Consume_Consume1 = m_Consume.FindAction("Consume1", throwIfNotFound: true);
+        m_Consume_Consume2 = m_Consume.FindAction("Consume2", throwIfNotFound: true);
+        m_Consume_Consume3 = m_Consume.FindAction("Consume3", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -288,9 +361,77 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // Consume
+    private readonly InputActionMap m_Consume;
+    private List<IConsumeActions> m_ConsumeActionsCallbackInterfaces = new List<IConsumeActions>();
+    private readonly InputAction m_Consume_Consume1;
+    private readonly InputAction m_Consume_Consume2;
+    private readonly InputAction m_Consume_Consume3;
+    public struct ConsumeActions
+    {
+        private @InputActions m_Wrapper;
+        public ConsumeActions(@InputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Consume1 => m_Wrapper.m_Consume_Consume1;
+        public InputAction @Consume2 => m_Wrapper.m_Consume_Consume2;
+        public InputAction @Consume3 => m_Wrapper.m_Consume_Consume3;
+        public InputActionMap Get() { return m_Wrapper.m_Consume; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(ConsumeActions set) { return set.Get(); }
+        public void AddCallbacks(IConsumeActions instance)
+        {
+            if (instance == null || m_Wrapper.m_ConsumeActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_ConsumeActionsCallbackInterfaces.Add(instance);
+            @Consume1.started += instance.OnConsume1;
+            @Consume1.performed += instance.OnConsume1;
+            @Consume1.canceled += instance.OnConsume1;
+            @Consume2.started += instance.OnConsume2;
+            @Consume2.performed += instance.OnConsume2;
+            @Consume2.canceled += instance.OnConsume2;
+            @Consume3.started += instance.OnConsume3;
+            @Consume3.performed += instance.OnConsume3;
+            @Consume3.canceled += instance.OnConsume3;
+        }
+
+        private void UnregisterCallbacks(IConsumeActions instance)
+        {
+            @Consume1.started -= instance.OnConsume1;
+            @Consume1.performed -= instance.OnConsume1;
+            @Consume1.canceled -= instance.OnConsume1;
+            @Consume2.started -= instance.OnConsume2;
+            @Consume2.performed -= instance.OnConsume2;
+            @Consume2.canceled -= instance.OnConsume2;
+            @Consume3.started -= instance.OnConsume3;
+            @Consume3.performed -= instance.OnConsume3;
+            @Consume3.canceled -= instance.OnConsume3;
+        }
+
+        public void RemoveCallbacks(IConsumeActions instance)
+        {
+            if (m_Wrapper.m_ConsumeActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IConsumeActions instance)
+        {
+            foreach (var item in m_Wrapper.m_ConsumeActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_ConsumeActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public ConsumeActions @Consume => new ConsumeActions(this);
     public interface IPlayerActions
     {
         void OnJump(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
+    }
+    public interface IConsumeActions
+    {
+        void OnConsume1(InputAction.CallbackContext context);
+        void OnConsume2(InputAction.CallbackContext context);
+        void OnConsume3(InputAction.CallbackContext context);
     }
 }

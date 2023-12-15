@@ -147,6 +147,74 @@
                     "isPartOfComposite": true
                 }
             ]
+        },
+        {
+            "name": "Consume",
+            "id": "8b364c6c-a92a-4549-9b66-b16ea57f10d1",
+            "actions": [
+                {
+                    "name": "Consume1",
+                    "type": "Button",
+                    "id": "915c9959-2ea1-48e3-9a7d-7fe1e0bbd75e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Consume2",
+                    "type": "Button",
+                    "id": "663d9551-77f6-469a-85f3-1317e78bb550",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Consume3",
+                    "type": "Button",
+                    "id": "2ab092db-57dd-47cd-a6f2-728b83a347f6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "0395c147-c59c-4628-a823-71d1813f3b70",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Consume1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "57dd8a9b-2c38-491b-bca7-eb76d325069f",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Consume2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "62f94570-919a-474d-88df-12b38245c653",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Consume3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

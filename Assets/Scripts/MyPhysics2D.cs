@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MyPhysics2D : MonoBehaviour
@@ -10,6 +9,7 @@ public class MyPhysics2D : MonoBehaviour
     public float checkGroundRadius;
     public Vector2 checkGroundOffset;
     public LayerMask groundLayer;
+    [SerializeField]public PhysicsMaterial2D groundMaterial; 
 
     private void Awake()
     {
