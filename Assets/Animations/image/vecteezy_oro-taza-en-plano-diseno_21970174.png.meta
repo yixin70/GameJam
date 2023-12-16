@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4362f56118a8e5349a0b4c766bda6021
+guid: 3773a89ee9d45274dae3ef8d4744c437
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3790650050101663376
-    second: DreamShaper_v6_gameover_page_not_atracctive_a_fog_died_but_als_1_0
+      213: -8231454504849042986
+    second: vecteezy_oro-taza-en-plano-diseno_21970174_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -94,17 +94,41 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DreamShaper_v6_gameover_page_not_atracctive_a_fog_died_but_als_1_0
+      name: vecteezy_oro-taza-en-plano-diseno_21970174_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1536
-        height: 1024
+        width: 3744
+        height: 6067
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,8 +136,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 079afd7fcd7e46bc0800000000000000
-      internalID: -3790650050101663376
+      spriteID: 6d11fad6dbff3cd80800000000000000
+      internalID: -8231454504849042986
       vertices: []
       indices: 
       edges: []
@@ -129,7 +153,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      DreamShaper_v6_gameover_page_not_atracctive_a_fog_died_but_als_1_0: -3790650050101663376
+      vecteezy_oro-taza-en-plano-diseno_21970174_0: -8231454504849042986
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

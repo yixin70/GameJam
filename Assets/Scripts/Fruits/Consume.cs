@@ -42,7 +42,7 @@ public class Consume : MonoBehaviour
             {
                 fruit.count--;
                 Debug.Log("Consume: " + fruit.type);
-                playerController.scale = new Vector3(fruit.power, fruit.power, 1);
+                playerController.ChangScale(fruit.power);
             }
         }
     }

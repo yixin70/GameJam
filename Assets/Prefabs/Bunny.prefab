@@ -163,10 +163,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6238cd8efc5a9443bb5ae1836b73c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isGround: 0
-  checkGroundRadius: 0.15
-  checkGroundOffset: {x: -0.09, y: -1.36}
-  groundLayer:
+  isColision: 0
+  checkRadius: 0.16
+  checkOffset: {x: -0.04, y: 0.12}
+  checkLayer:
     serializedVersion: 2
     m_Bits: 0
   groundMaterial: {fileID: 6200000, guid: 3e9e3114c883c9340871b65d32574cab, type: 2}
