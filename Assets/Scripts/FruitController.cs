@@ -7,7 +7,7 @@ public class FruitController : MonoBehaviour
 {
     private Animator anim;
     public FruitType fruitType;
-
+     
     private void Start()
     {
         anim = GetComponent<Animator>();
