@@ -168,6 +168,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+  agroRange: 0.5
+  frog: {fileID: 0}
 --- !u!70 &5912159128065389778
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

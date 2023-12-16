@@ -31,6 +31,8 @@ public class TurtleMovement : MonoBehaviour
     {
         _IntervaloMovement();
         if (isAgro()) Debug.Log("ASAAAAAAAAAAAAAAAAAAAAAAA");
+
+
     }
 
     private void _FlipHorizontally()
@@ -72,6 +74,19 @@ public class TurtleMovement : MonoBehaviour
         
     }
 
+    private void SwitchAnimation()
+    {
+
+        if (isAgro())
+        {
+            this.animator.SetBool("Agro", true);
+
+        }
+        else this.animator.SetBool("Agro", false);
+
+
 
 
     }
+
+}
