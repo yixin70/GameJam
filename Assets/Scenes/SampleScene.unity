@@ -1033,13 +1033,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Turtle
       objectReference: {fileID: 0}
+    - target: {fileID: 3349743625733587545, guid: abe3e41d0b3fc384fa5c7d8d7b4b3bb3, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 6073993211148391530, guid: abe3e41d0b3fc384fa5c7d8d7b4b3bb3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.712
+      value: -1.764
       objectReference: {fileID: 0}
     - target: {fileID: 6073993211148391530, guid: abe3e41d0b3fc384fa5c7d8d7b4b3bb3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.185
+      value: -0.344
       objectReference: {fileID: 0}
     - target: {fileID: 6073993211148391530, guid: abe3e41d0b3fc384fa5c7d8d7b4b3bb3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1106,3 +1110,4 @@ SceneRoots:
   - {fileID: 2022459357}
   - {fileID: 1287464065}
   - {fileID: 7708276932125945338}
+  - {fileID: 1420065034}

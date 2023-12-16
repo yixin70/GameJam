@@ -65,7 +65,6 @@ public class BunnyMovement : MonoBehaviour
         }
     }
 
-
     private void _Jump()
     {
         
