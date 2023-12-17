@@ -7,7 +7,7 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/Incio.unity
-    guid: 4b4d2324ab69e1c4a89cc5001e5c2c9b
+    guid: 4b9ae089725a66e4ab5c2c5eaf7bbd69
   - enabled: 1
     path: Assets/Scenes/DemoMap.unity
     guid: d73e15562642d3340b96f44d4a675493
@@ -16,4 +16,3 @@ EditorBuildSettings:
     guid: 82e18e566aabf5346bdfe764e37fee84
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: d748964c69239314cbdc67bef3877db3, type: 2}
-  m_UseUCBPForAssetBundles: 0

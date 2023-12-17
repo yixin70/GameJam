@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Banana
   m_EditorClassIdentifier: 
   type: 1
-  count: 86
-  power: 0.7
+  count: 62
+  power: 3
   score: 1
