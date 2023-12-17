@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class TurtleMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
-
     private Rigidbody2D rb;
     private MyPhysics2D physics;
 
@@ -16,22 +14,47 @@ public class TurtleMovement : MonoBehaviour
 
     private Animator animator;
 
+    private int _turtleGoingRight = 1; //Si es 1, entonces la tortuga va a la derecha, si es -1 va a la izquierda.
+    private int _previousStateTurtleGoingRight = 1; 
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         physics = GetComponent<MyPhysics2D>();
-        speed = 2f;
+        speed = 0.5f;
         animator = GetComponent<Animator>();
         _FlipHorizontally();
         agroRange = 2f;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        _IntervaloMovement();
-        if (isAgro()) Debug.Log("ASAAAAAAAAAAAAAAAAAAAAAAA");
+        if (_IsAggro())
+        {
+            if(frog.transform.position.x <= transform.position.x)
+            {
+                _turtleGoingRight = -1; //Significa que la rana esta a la izquierda de la tortuga.
+            }
+            else
+            {
+                _turtleGoingRight = 1; //Al reves.
+            }
 
+            _Movement();
+        }
+
+        //YIXIN:
+        //Si el estado previo es distinto del actual, significa que se tiene que dar la vuelta.
+        //Tambien actualizamos el estado previo al actual.
+        if(_previousStateTurtleGoingRight != _turtleGoingRight)
+        {
+            _FlipHorizontally();
+            _previousStateTurtleGoingRight = _turtleGoingRight;
+        }
+
+        _SwitchAnimation();
 
     }
 
@@ -39,53 +62,34 @@ public class TurtleMovement : MonoBehaviour
     {
         Vector2 Scaler = transform.localScale;
         Scaler.x *= -1;
-        transform.localScale = Scaler;
-    }
 
-    private void _ChangeDirecction()
-    {
-        speed *= -1;
-        _FlipHorizontally();
+
+        transform.localScale = Scaler;
     }
     private void _Movement()
     {
         if (physics.isGround)
-            rb.velocity = new Vector2(speed, 0);
+        {
+            //Aqui multiplico el valor ese por la velocidad y asi determina automaticamente si tiene que ir a la derecha o la izquierda
+            rb.velocity = new Vector2(speed * _turtleGoingRight, 0); 
+        }
 
     }
-    private void _IntervaloMovement()
-    {
-        elapsedTime += Time.deltaTime;
-
-        if (elapsedTime >= 1.5f)
-        {
-            _ChangeDirecction();
-
-            elapsedTime = 0;
-        }
-        else
-        {
-            _Movement();
-        }
-    }
-    private bool isAgro() {
+    private bool _IsAggro() {
 
         return Vector2.Distance(transform.position, frog.position) < agroRange;
         
     }
 
-    private void SwitchAnimation()
+    private void _SwitchAnimation()
     {
 
-        if (isAgro())
+        if (_IsAggro())
         {
             this.animator.SetBool("Agro", true);
 
         }
         else this.animator.SetBool("Agro", false);
-
-
-
 
     }
 
