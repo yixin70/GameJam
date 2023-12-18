@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 5912159128065389778}
   m_Layer: 0
   m_Name: Turtle
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -91,7 +91,7 @@ SpriteRenderer:
   m_SpriteSortPoint: 0
 --- !u!95 &156563871456902953
 Animator:
-  serializedVersion: 7
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -105,7 +105,6 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -171,7 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   agroRange: 50
-  frog: {fileID: 2502671926482921377, guid: b2d71ce77be5641429ed01299c5fe158, type: 3}
+  frog: {fileID: 2502671926482921377, guid: 294d8b6044957c0448df7a5057e0972d, type: 3}
 --- !u!70 &5912159128065389778
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -180,7 +179,6 @@ CapsuleCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3349743625733587545}
   m_Enabled: 1
-  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -204,8 +202,7 @@ CapsuleCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
+  m_UsedByComposite: 0
   m_Offset: {x: 0.0021050202, y: -0.027059639}
   m_Size: {x: 0.36473057, y: 0.22159134}
   m_Direction: 1
