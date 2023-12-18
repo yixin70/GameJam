@@ -7,7 +7,7 @@ public class TurtleMovement : MonoBehaviour
     private Rigidbody2D rb;
     private MyPhysics2D physics;
 
-    private float elapsedTime = 0;
+   
     public float speed;
     public float agroRange;
     public Transform frog;
