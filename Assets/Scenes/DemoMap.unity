@@ -898,7 +898,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6fc346999783d346ae96c2593a85cef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeCheckpoint: {fileID: 1625768804}
+  activeCheckpoint: {fileID: 1289192808}
   player: {fileID: 1899008226}
 --- !u!4 &740100134
 Transform:
@@ -1696,6 +1696,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4588059ba3ad984c83bcfe4f4d6fc84, type: 3}
+--- !u!1 &1289192808 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6794678416260402829, guid: d4588059ba3ad984c83bcfe4f4d6fc84, type: 3}
+  m_PrefabInstance: {fileID: 1223894419}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1289267663
 GameObject:
   m_ObjectHideFlags: 0
@@ -18813,11 +18818,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2271fb524d405224ab12dfc00afacfbf, type: 3}
---- !u!1 &1625768804 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 385851540237467823, guid: 3f880efc70a86714d90272bfa1027952, type: 3}
-  m_PrefabInstance: {fileID: 2033449610}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1798466611
 PrefabInstance:
   m_ObjectHideFlags: 0
