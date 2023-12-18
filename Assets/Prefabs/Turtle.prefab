@@ -32,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.61, y: 0.61, z: 0.61}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -75,8 +75,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -501243523
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 465714023092435484, guid: 81599edd816625a4394b87c55bc6d552, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -152,7 +152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGround: 0
   checkGroundRadius: 0.1
-  checkGroundOffset: {x: 0, y: -0.3}
+  checkGroundOffset: {x: 0, y: -0.4}
   groundLayer:
     serializedVersion: 2
     m_Bits: 0
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   agroRange: 50
-  frog: {fileID: 0}
+  frog: {fileID: 2502671926482921377, guid: b2d71ce77be5641429ed01299c5fe158, type: 3}
 --- !u!70 &5912159128065389778
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
