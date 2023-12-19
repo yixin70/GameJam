@@ -11,16 +11,12 @@ public class RhynoMovement : MonoBehaviour
     private Rigidbody2D rb;
     private MyPhysics2D physics;
 
-    private bool _hasJumped = false;
-    private Animator animator;
 
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        physics = GetComponent<MyPhysics2D>();
-        
-        animator = GetComponent<Animator>();
+        physics = GetComponent<MyPhysics2D>();   
         _FlipHorizontally();
     }
 
@@ -53,7 +49,7 @@ public class RhynoMovement : MonoBehaviour
     }
     private void _Movement()
     {
-        if (physics.isCollision)
+        if (physics.collision)
         {
             rb.velocity = new Vector2(speed, 0);
         }

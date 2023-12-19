@@ -5,13 +5,10 @@ using UnityEngine;
 public class TurtleMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
-    private MyPhysics2D physics;
+    [SerializeField]
+    private MyPhysics2D groundCollision,playerCollision;
 
-   
     public float speed;
-    public float agroRange;
-    public Transform frog;
-
     private Animator animator;
 
     private int _turtleGoingRight = 1; //Si es 1, entonces la tortuga va a la derecha, si es -1 va a la izquierda.
@@ -20,20 +17,17 @@ public class TurtleMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        physics = GetComponent<MyPhysics2D>();
-       
         animator = GetComponent<Animator>();
         _FlipHorizontally();
-         
-        
     }
+   
 
     // Update is called once per frame
     void Update()
     {
-        if (_IsAggro())
+        if (playerCollision.collision)
         {
-            if(frog.transform.position.x <= transform.position.x)
+             if(playerCollision.collision.transform.position.x <= transform.position.x)
             {
                 _turtleGoingRight = -1; //Significa que la rana esta a la izquierda de la tortuga.
             }
@@ -41,10 +35,8 @@ public class TurtleMovement : MonoBehaviour
             {
                 _turtleGoingRight = 1; //Al reves.
             }
-
             _Movement();
         }
-
         //YIXIN:
         //Si el estado previo es distinto del actual, significa que se tiene que dar la vuelta.
         //Tambien actualizamos el estado previo al actual.
@@ -68,23 +60,17 @@ public class TurtleMovement : MonoBehaviour
     }
     private void _Movement()
     {
-        if (physics.isCollision)
+        if (groundCollision.collision)
         {
             //Aqui multiplico el valor ese por la velocidad y asi determina automaticamente si tiene que ir a la derecha o la izquierda
             rb.velocity = new Vector2(speed * _turtleGoingRight, 0); 
         }
 
     }
-    private bool _IsAggro() {
-
-        return Vector2.Distance(transform.position, frog.position) < agroRange;
-        
-    }
-
     private void _SwitchAnimation()
     {
 
-        if (_IsAggro())
+        if (playerCollision.collision)
         {
             this.animator.SetBool("Agro", true);
 

@@ -24,7 +24,6 @@ public class PlayerCollision : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Si el jugador entra en contacto con un objeto con el tag "Respawn"
         if (collision.gameObject.CompareTag("Respawn"))
         {
             Checkpoint checkpoint = collision.gameObject.GetComponent<Checkpoint>();
@@ -33,10 +32,10 @@ public class PlayerCollision : MonoBehaviour
             {
                 // Reproducimos sonido y activamos el checkpoint
                 playerController.audioSource.PlayOneShot(checkpointClip);
-                gameManager.ActivateCheckpoint(collision.gameObject);
+                gameManager.mapManager.ActivateCheckpoint(collision.gameObject);
             }
         }
-        // Si el jugador entra en contacto con un objeto con el tag "Fruit"
+
         if (collision.gameObject.CompareTag("Fruit"))
         {
             FruitController fruitController = collision.gameObject.GetComponent<FruitController>();
@@ -44,7 +43,6 @@ public class PlayerCollision : MonoBehaviour
             this.CollectFruit(fruitController);
         }
         
-        // Si el jugador entra en contacto con un objeto con el tag "Finish"
         if (collision.gameObject.CompareTag("Finish"))
         {
             collision.gameObject.GetComponent<Checkpoint>().Activate();
@@ -90,14 +88,7 @@ public class PlayerCollision : MonoBehaviour
         playerController.rb.Sleep();
         // Esperamos unos segundos.
         yield return new WaitForSeconds(waitOnHit);
-
-        if(playerController.health<=0)
-        { 
-            playerController.ManageDeath();
-        }else
-        {
-            playerController.health--;
-        }
+        playerController.ManageDeath();
         playerController.rb.WakeUp();
         isHitted = false;
     }

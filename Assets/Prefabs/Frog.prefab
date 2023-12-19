@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 6128039538437937639}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.00000017029897, y: 2.02, z: 0}
+  m_LocalPosition: {x: 0, y: 4, z: 0}
   m_LocalScale: {x: 1.4285713, y: 1.4285713, z: 1.4285713}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -65,7 +65,7 @@ Transform:
   m_GameObject: {fileID: 7162749223423207180}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.673, y: -0.649, z: 0}
+  m_LocalPosition: {x: -7.89799, y: -1.6397278, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -111,7 +111,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 768666293
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -6367560908665664636, guid: cd947491a13509945aa1b644f9db3ef2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -225,6 +225,7 @@ MonoBehaviour:
   jumpCount: 0
   initialHealth: 1
   health: 0
+  groundMaterial: {fileID: 6200000, guid: 3e9e3114c883c9340871b65d32574cab, type: 2}
   rb: {fileID: 0}
   animator: {fileID: 0}
   audioSource: {fileID: 0}
@@ -240,13 +241,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6238cd8efc5a9443bb5ae1836b73c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isCollision: 0
+  collision: {fileID: 0}
   checkGroundRadius: 0.33
   checkGroundOffset: {x: 0, y: -0.04}
   checkLayers:
     serializedVersion: 2
     m_Bits: 1408
-  groundMaterial: {fileID: 6200000, guid: 3e9e3114c883c9340871b65d32574cab, type: 2}
 --- !u!114 &4492996240860997854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,10 +263,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5000fbb37840c77459f12ac15c8af5e0, type: 2}
   - {fileID: 11400000, guid: 8b56e6ddbcd7e244a8f23c768456c5e5, type: 2}
   - {fileID: 11400000, guid: 9f8940f0cb6d472489e8a11f7c7ad529, type: 2}
-  checkpointClip: {fileID: 0}
+  checkpointClip: {fileID: 8300000, guid: fe166ce795a18d245be3cf11e524a39f, type: 3}
   fruitClip: {fileID: 0}
   hitClip: {fileID: 8300000, guid: 905b9c5a372ad734b886b4e1c1118334, type: 3}
-  waitOnHit: 0.5
+  waitOnHit: 0.3
 --- !u!114 &3728532741196481566
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -43,7 +43,7 @@ public class BunnyMovement : MonoBehaviour
         }
         else if (elapsedTime >= 0.45f && elapsedTime <= 0.5f)
         {
-            if (physics.isCollision)
+            if (physics.collision)
                 _Jump();
         }
         else
@@ -59,7 +59,7 @@ public class BunnyMovement : MonoBehaviour
     }
     private void _Movement()
     {
-        if (physics.isCollision)
+        if (physics.collision)
         {
             rb.velocity = new Vector2(speed, 0);
         }
@@ -104,7 +104,7 @@ public class BunnyMovement : MonoBehaviour
            this.animator.SetBool("falling", false);
            this.animator.SetBool("isGrounded", false);
        }
-       if (physics.isCollision)
+       if (physics.collision)
        {
            this.animator.SetBool("jumping", false);
            this.animator.SetBool("falling", false);

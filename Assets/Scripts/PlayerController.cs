@@ -8,10 +8,11 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float initialMoveSpeed = 60, initialJumpForce = 40, scaledSpeed = 1;
-    [SerializeField] private int jumpCount, initialHealth;
+    [SerializeField] private int jumpCount, initialHealth=1;
     private float horizontalMove, moveSpeed, jumpForce;
     public int health;
     private Vector3 scale;
+    [SerializeField]PhysicsMaterial2D groundMaterial;
 
     public InputActions inputActions;
     public Rigidbody2D rb;
@@ -23,6 +24,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         inputActions = new InputActions();
+        
     }
     private void OnEnable()
     {
@@ -57,6 +59,7 @@ public class PlayerController : MonoBehaviour
         SwitchAnimation();
         ChangScale();
     }
+
     public void ChangScale(float power)
     {
         scale = new Vector3(power, power, 1);
@@ -72,31 +75,36 @@ public class PlayerController : MonoBehaviour
     {
         jumpForce = initialJumpForce * scale.x;
         moveSpeed = initialMoveSpeed * scale.x;
-        physics.groundMaterial.friction = 0.4f * scale.x;
+        groundMaterial.friction = 0.4f * scale.x;
     }
     private void SwitchAnimation()
     {
-        if (!physics.isCollision)
+        if (!physics.collision)
         {
-            if (rb.velocity.y < 0.01)
+            if (rb.velocity.y < 0)
             {
                 this.animator.SetBool("Jump", false);
                 this.animator.SetBool("Fall", true);
             }
-            else if (rb.velocity.y > 0.01)
+            else if (rb.velocity.y > 0.00)
             {
                 this.animator.SetBool("Fall", false);
                 if (jumpCount == 1)
                 {
                     this.animator.SetBool("Jump", true);
                 }
-                else if (jumpCount == 2)
-                {
+                else if (jumpCount == 2)//
+                {    
+                    //animator.SetBool("DoubleJump",true);
+                    //jumpCount=0;
                     this.animator.SetTrigger("DoubleJump");
+                }else if (jumpCount == 0)
+                {
+                    //animator.SetBool("DoubleJump", false);
                 }
             }
         }
-        if (physics.isCollision && rb.velocity.y == 0)
+        if (physics.collision && rb.velocity.y == 0)
         {
             this.animator.SetBool("Jump", false);
             this.animator.SetBool("Fall", false);
@@ -129,7 +137,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Jump(InputAction.CallbackContext context)
     {
-        if (physics.isCollision || jumpCount < 2)
+        if (physics.collision || jumpCount < 2)
         {
             if (jumpCount == 0)
             {
@@ -145,13 +153,19 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    
     public void ManageDeath()
     {
-        this.Respawn();
-        health = initialHealth;
+        health -= 1;
+        if(health <= 0)
+        {
+            this.Respawn();
+        }
     }
+    
     public void Respawn()
     {
-        transform.position = GameManager.Instance.activeCheckpoint.transform.position;
+        health = initialHealth;
+        transform.position = MapManager.Instance.activeCheckpoint.transform.position;
     }
 }

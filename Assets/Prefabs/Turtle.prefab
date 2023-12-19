@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 3271102775000247643}
   - component: {fileID: 156563871456902953}
   - component: {fileID: 8209634668503193007}
-  - component: {fileID: 4925817903282986465}
-  - component: {fileID: 7780073801871399089}
   - component: {fileID: 5912159128065389778}
+  - component: {fileID: 7780073801871399089}
+  - component: {fileID: 4925817903282986465}
+  - component: {fileID: 3777087395158662331}
   m_Layer: 10
   m_Name: Turtle
   m_TagString: Enemy
@@ -75,8 +76,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -501243523
-  m_SortingLayer: 2
+  m_SortingLayerID: -2054116109
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 465714023092435484, guid: 81599edd816625a4394b87c55bc6d552, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -137,40 +138,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &4925817903282986465
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3349743625733587545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6238cd8efc5a9443bb5ae1836b73c13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isCollision: 0
-  checkGroundRadius: 0.2
-  checkGroundOffset: {x: 0, y: 0}
-  checkLayers:
-    serializedVersion: 2
-    m_Bits: 128
-  groundMaterial: {fileID: 0}
---- !u!114 &7780073801871399089
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3349743625733587545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d41cfd85ea7fe634995c67a8552df37c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 2
-  agroRange: 50
-  frog: {fileID: 0}
 --- !u!70 &5912159128065389778
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -206,3 +173,56 @@ CapsuleCollider2D:
   m_Offset: {x: 0.0017336141, y: 0.10823559}
   m_Size: {x: 0.37818372, y: 0.21829413}
   m_Direction: 1
+--- !u!114 &7780073801871399089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3349743625733587545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d41cfd85ea7fe634995c67a8552df37c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundCollision: {fileID: 4925817903282986465}
+  playerCollision: {fileID: 3777087395158662331}
+  speed: 2
+--- !u!114 &4925817903282986465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3349743625733587545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6238cd8efc5a9443bb5ae1836b73c13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCollision: 0
+  checkGroundRadius: 0.2
+  checkGroundOffset: {x: 0, y: 0}
+  checkLayers:
+    serializedVersion: 2
+    m_Bits: 128
+  groundMaterial: {fileID: 0}
+--- !u!114 &3777087395158662331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3349743625733587545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6238cd8efc5a9443bb5ae1836b73c13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCollision: 0
+  checkGroundRadius: 10
+  checkGroundOffset: {x: 0, y: 0}
+  checkLayers:
+    serializedVersion: 2
+    m_Bits: 8
+  groundMaterial: {fileID: 0}

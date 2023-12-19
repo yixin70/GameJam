@@ -4,15 +4,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
-    public GameObject activeCheckpoint;
     public GameObject player;
+    public MapManager mapManager;
+    private AudioSource audioSource;
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         DontDestroyOnLoad(this.gameObject);
-        player.transform.position = activeCheckpoint.transform.position;
+        audioSource.Play();
+    }
+    public void StartGame()
+    {
+        audioSource.Stop();
+        audioSource.Play();
+        SceneManager.LoadScene(1);
     }
 
     public void Update()
@@ -20,26 +29,15 @@ public class GameManager : Singleton<GameManager>
         // Si pulsamos escape abrir menu.
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            //Application.Quit();
+            
         }
     }
-    // Activa un checkpoint y desactiva el anterior.
-    public void ActivateCheckpoint(GameObject newCheckpoint)
-    {
-        // Si había un checkpoint antiguo lo desactivamos.
-        if (activeCheckpoint)
-        {
-            activeCheckpoint.GetComponent<Checkpoint>().Deactivate(); 
-        }
-        // Marcamos el checkpoint como activo.
-        activeCheckpoint = newCheckpoint;
-        activeCheckpoint.GetComponent<Checkpoint>().Activate();
-    }
+   
 
     // Finaliza el juego.
     public void FinishGame()
     {
-       // TODO: Implementar
+        SceneManager.LoadScene(2);
     }
 
 }
