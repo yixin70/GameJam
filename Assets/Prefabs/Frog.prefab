@@ -219,11 +219,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abaed4af97c6d99499564cd104452e98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialMoveSpeed: 60
+  initialMoveSpeed: 5
   initialJumpForce: 40
   scaledSpeed: 1
   jumpCount: 0
-  initialHealth: 0
+  initialHealth: 1
   health: 0
   rb: {fileID: 0}
   animator: {fileID: 0}

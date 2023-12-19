@@ -122,7 +122,8 @@ public class PlayerController : MonoBehaviour
     }
     private void Run()
     {
-        rb.AddForce(new Vector2(horizontalMove * moveSpeed, rb.velocity.y));
+        //rb.AddForce(new Vector2(horizontalMove * moveSpeed, rb.velocity.y));
+        rb.velocity= new Vector2(horizontalMove * moveSpeed, rb.velocity.y);
         bool playerHasXMove = Mathf.Abs(rb.velocity.x) > 0.01f;
         this.animator.SetBool("Run", playerHasXMove);
     }
