@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6128039538437937639
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2894161057774662333}
+  m_Layer: 0
+  m_Name: CameraFollowPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2894161057774662333
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6128039538437937639}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.00000017029897, y: 2.02, z: 0}
+  m_LocalScale: {x: 1.4285713, y: 1.4285713, z: 1.4285713}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2502671926482921377}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7162749223423207180
 GameObject:
   m_ObjectHideFlags: 0
@@ -37,7 +68,8 @@ Transform:
   m_LocalPosition: {x: -1.673, y: -0.649, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 2894161057774662333}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2735214123424091509
@@ -163,7 +195,7 @@ Rigidbody2D:
   m_Mass: 4
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1.5
+  m_GravityScale: 1.3
   m_Material: {fileID: 6200000, guid: 3e9e3114c883c9340871b65d32574cab, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -209,9 +241,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCollision: 0
-  checkGroundRadius: 0.2
-  checkGroundOffset: {x: 0, y: 0}
-  groundLayer:
+  checkGroundRadius: 0.33
+  checkGroundOffset: {x: 0, y: -0.04}
+  checkLayers:
     serializedVersion: 2
     m_Bits: 1408
   groundMaterial: {fileID: 6200000, guid: 3e9e3114c883c9340871b65d32574cab, type: 2}
@@ -233,7 +265,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9f8940f0cb6d472489e8a11f7c7ad529, type: 2}
   checkpointClip: {fileID: 0}
   fruitClip: {fileID: 0}
-  hitClip: {fileID: 0}
+  hitClip: {fileID: 8300000, guid: 905b9c5a372ad734b886b4e1c1118334, type: 3}
   waitOnHit: 0.5
 --- !u!114 &3728532741196481566
 MonoBehaviour:

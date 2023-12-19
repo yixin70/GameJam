@@ -47,7 +47,8 @@ public class PlayerCollision : MonoBehaviour
         // Si el jugador entra en contacto con un objeto con el tag "Finish"
         if (collision.gameObject.CompareTag("Finish"))
         {
-            GameManager.Instance.FinishGame();
+            collision.gameObject.GetComponent<Checkpoint>().Activate();
+            GameManager.Instance.FinishGame(); 
         }
 
     }
@@ -57,8 +58,12 @@ public class PlayerCollision : MonoBehaviour
         // Si el jugador entra en contacto con un objeto con el tag "Enemy"
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            if (isHitted) return;
-            StartCoroutine(ManageHit());
+            if (!isHitted) { StartCoroutine(ManageHit()); }
+           
+        }
+        if (collision.gameObject.CompareTag("OutMap"))
+        {
+            playerController.Respawn();
         }
     }
 

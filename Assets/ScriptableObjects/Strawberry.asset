@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Strawberry
   m_EditorClassIdentifier: 
   type: 2
-  count: 69
-  power: 2
+  count: 60
+  power: 1
   score: 1

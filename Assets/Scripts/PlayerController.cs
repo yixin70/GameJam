@@ -7,14 +7,14 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float initialMoveSpeed=60,initialJumpForce=40,scaledSpeed=1;
-    [SerializeField] private int jumpCount,initialHealth;
+    [SerializeField] private float initialMoveSpeed = 60, initialJumpForce = 40, scaledSpeed = 1;
+    [SerializeField] private int jumpCount, initialHealth;
     private float horizontalMove, moveSpeed, jumpForce;
     public int health;
     private Vector3 scale;
-    
+
     public InputActions inputActions;
-    public Rigidbody2D rb;  
+    public Rigidbody2D rb;
     public Animator animator;
     private MyPhysics2D physics;
     public AudioSource audioSource;
@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
-        health=initialHealth;
+        health = initialHealth;
         scale = transform.localScale;
         this.SetScale();
     }
@@ -50,9 +50,6 @@ public class PlayerController : MonoBehaviour
     {
         horizontalMove = inputActions.Player.Move.ReadValue<Vector2>().x;
     }
-
-  
-
     private void FixedUpdate()
     {
         Run();
@@ -69,17 +66,17 @@ public class PlayerController : MonoBehaviour
         if (transform.localScale.x == scale.x) return;
         transform.localScale = Vector3.MoveTowards(transform.localScale, scale, scaledSpeed * Time.deltaTime);
         this.SetScale();
-    } 
-    
+    }
+
     private void SetScale()
     {
-        jumpForce=initialJumpForce*scale.x;
-        moveSpeed=initialMoveSpeed*scale.x;
-        physics.groundMaterial.friction = 0.3f * scale.x;
+        jumpForce = initialJumpForce * scale.x;
+        moveSpeed = initialMoveSpeed * scale.x;
+        physics.groundMaterial.friction = 0.4f * scale.x;
     }
     private void SwitchAnimation()
     {
-        if(!physics.isCollision)
+        if (!physics.isCollision)
         {
             if (rb.velocity.y < 0.01)
             {
@@ -126,12 +123,12 @@ public class PlayerController : MonoBehaviour
     private void Run()
     {
         rb.AddForce(new Vector2(horizontalMove * moveSpeed, rb.velocity.y));
-        bool playerHasXMove = Mathf.Abs(rb.velocity.x) >0.01f;
+        bool playerHasXMove = Mathf.Abs(rb.velocity.x) > 0.01f;
         this.animator.SetBool("Run", playerHasXMove);
     }
     private void Jump(InputAction.CallbackContext context)
     {
-        if (physics.isCollision|| jumpCount < 2)
+        if (physics.isCollision || jumpCount < 2)
         {
             if (jumpCount == 0)
             {
@@ -149,9 +146,11 @@ public class PlayerController : MonoBehaviour
 
     public void ManageDeath()
     {
-        transform.position = GameManager.Instance.activeCheckpoint.transform.position;
+        this.Respawn();
         health = initialHealth;
     }
-
-
+    public void Respawn()
+    {
+        transform.position = GameManager.Instance.activeCheckpoint.transform.position;
+    }
 }

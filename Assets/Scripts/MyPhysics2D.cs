@@ -8,13 +8,10 @@ public class MyPhysics2D : MonoBehaviour
     public bool isCollision;
     public float checkGroundRadius=0.2f;
     public Vector2 checkGroundOffset;
-    public LayerMask groundLayer;
+    public LayerMask checkLayers;
     [SerializeField]public PhysicsMaterial2D groundMaterial; 
 
-    private void Awake()
-    {
-        groundLayer = LayerMask.GetMask("Ground");
-    }
+
     private void Update()
     {
         CheckIsGround();
@@ -22,7 +19,7 @@ public class MyPhysics2D : MonoBehaviour
 
     private void CheckIsGround()
     {
-        isCollision=Physics2D.OverlapCircle((Vector2)transform.position+checkGroundOffset,checkGroundRadius,groundLayer);
+        isCollision=Physics2D.OverlapCircle((Vector2)transform.position+checkGroundOffset,checkGroundRadius,checkLayers);
     }
 
     private void OnDrawGizmosSelected()
