@@ -35,7 +35,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.673, y: -0.649, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -145,8 +145,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.035310745, y: 0.71511674}
-  m_Size: {x: 1.2349644, y: 1.4302335}
+  m_Offset: {x: 0.035310745, y: 0.7648622}
+  m_Size: {x: 1.2349644, y: 1.5297244}
   m_Direction: 0
 --- !u!50 &7004512021702619468
 Rigidbody2D:
@@ -160,7 +160,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 5
+  m_Mass: 4
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1.5
@@ -189,8 +189,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialMoveSpeed: 60
   initialJumpForce: 40
+  scaledSpeed: 1
   jumpCount: 0
-  scale: {x: 0, y: 0, z: 0}
+  initialHealth: 0
+  health: 0
+  rb: {fileID: 0}
+  animator: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!114 &5781009113593580978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,12 +208,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6238cd8efc5a9443bb5ae1836b73c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isGround: 0
+  isCollision: 0
   checkGroundRadius: 0.2
   checkGroundOffset: {x: 0, y: 0}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1408
   groundMaterial: {fileID: 6200000, guid: 3e9e3114c883c9340871b65d32574cab, type: 2}
 --- !u!114 &4492996240860997854
 MonoBehaviour:
@@ -226,6 +231,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5000fbb37840c77459f12ac15c8af5e0, type: 2}
   - {fileID: 11400000, guid: 8b56e6ddbcd7e244a8f23c768456c5e5, type: 2}
   - {fileID: 11400000, guid: 9f8940f0cb6d472489e8a11f7c7ad529, type: 2}
+  checkpointClip: {fileID: 0}
+  fruitClip: {fileID: 0}
+  hitClip: {fileID: 0}
+  waitOnHit: 0.5
 --- !u!114 &3728532741196481566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,7 +267,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 0.18874025
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -7400282243791725938}
   - component: {fileID: -4758924517033737160}
   - component: {fileID: 3735126477782535593}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bunny
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -162,12 +162,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6238cd8efc5a9443bb5ae1836b73c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isGround: 0
+  isCollision: 0
   checkGroundRadius: 0.2
-  checkGroundOffset: {x: 0, y: -0.4}
+  checkGroundOffset: {x: 0, y: 0}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   groundMaterial: {fileID: 0}
 --- !u!70 &3735126477782535593
 CapsuleCollider2D:
@@ -201,6 +201,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.10173826, y: -0.29893616}
-  m_Size: {x: 1.35179, y: 2.2877839}
+  m_Offset: {x: -0.013738155, y: 0.92164075}
+  m_Size: {x: 1.1083763, y: 1.8432815}
   m_Direction: 0

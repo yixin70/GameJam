@@ -68,7 +68,7 @@ public class TurtleMovement : MonoBehaviour
     }
     private void _Movement()
     {
-        if (physics.isGround)
+        if (physics.isCollision)
         {
             //Aqui multiplico el valor ese por la velocidad y asi determina automaticamente si tiene que ir a la derecha o la izquierda
             rb.velocity = new Vector2(speed * _turtleGoingRight, 0); 

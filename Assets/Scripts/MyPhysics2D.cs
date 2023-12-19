@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class MyPhysics2D : MonoBehaviour
 {
-    [Header("CheckIsGround")]
-    public bool isGround;
-    public float checkGroundRadius;
+    [Header("CheckIsCollision")]
+    public bool isCollision;
+    public float checkGroundRadius=0.2f;
     public Vector2 checkGroundOffset;
     public LayerMask groundLayer;
     [SerializeField]public PhysicsMaterial2D groundMaterial; 
@@ -22,7 +22,7 @@ public class MyPhysics2D : MonoBehaviour
 
     private void CheckIsGround()
     {
-        isGround=Physics2D.OverlapCircle((Vector2)transform.position+checkGroundOffset,checkGroundRadius,groundLayer);
+        isCollision=Physics2D.OverlapCircle((Vector2)transform.position+checkGroundOffset,checkGroundRadius,groundLayer);
     }
 
     private void OnDrawGizmosSelected()

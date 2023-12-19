@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
     }
     private void SwitchAnimation()
     {
-        if(!physics.isGround)
+        if(!physics.isCollision)
         {
             if (rb.velocity.y < 0.01)
             {
@@ -99,7 +99,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-        if (physics.isGround && rb.velocity.y == 0)
+        if (physics.isCollision && rb.velocity.y == 0)
         {
             this.animator.SetBool("Jump", false);
             this.animator.SetBool("Fall", false);
@@ -131,7 +131,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Jump(InputAction.CallbackContext context)
     {
-        if (physics.isGround|| jumpCount < 2)
+        if (physics.isCollision|| jumpCount < 2)
         {
             if (jumpCount == 0)
             {
