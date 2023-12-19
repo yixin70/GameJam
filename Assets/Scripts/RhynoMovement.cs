@@ -5,57 +5,63 @@ using UnityEngine;
 
 public class RhynoMovement : MonoBehaviour
 {
-    public Vector2 movementVector = new Vector2(5f, 0f);
+    private float elapsedTime = 0;
+    public float speed;
 
-    private Tuple<float, float> _limit;
-    private bool _hasChangedRecently = false;
-    private float _offset = 0.1f;
+    private Rigidbody2D rb;
+    private MyPhysics2D physics;
 
-    private float _speedFactor = 0.5f;
-    private Vector3 _startingPos;
-    
+    private bool _hasJumped = false;
+    private Animator animator;
+
+
     void Start()
     {
-        _startingPos = transform.position;
+        rb = GetComponent<Rigidbody2D>();
+        physics = GetComponent<MyPhysics2D>();
+        
+        animator = GetComponent<Animator>();
         _FlipHorizontally();
-        //Item1 Will be LeftLimit and Item2 RightLimit
-        _limit = new Tuple<float, float>(_startingPos.x - movementVector.x + _offset, _startingPos.x + movementVector.x - _offset);
-
     }
 
     void Update()
     {
-        _Movement();
+        _Intervalo();
+       
     }
-
-    private void _Movement()
+    private void _Intervalo()
     {
-        float movementFactor = Mathf.Sin(Time.time * _speedFactor);
-        Vector3 offset = movementVector * movementFactor;
-        transform.position = _startingPos + offset;
+        elapsedTime += Time.deltaTime;
 
-        if ((_limit.Item1 >= transform.position.x || _limit.Item2 <= transform.position.x) && !_hasChangedRecently)
+        if (elapsedTime >= 1.5f)
         {
-            _hasChangedRecently = true;
-            _FlipHorizontally();
+            _ChangeDirecction();
+
+            elapsedTime = 0;
+        }
+        
+        else
+        {
+            _Movement();
         }
 
-        if (_hasChangedRecently)
-            StartCoroutine(_WaitXTimeBeforeFlippingHorizontally());
-        
     }
-
-    private IEnumerator _WaitXTimeBeforeFlippingHorizontally()
+    private void _ChangeDirecction()
     {
-        yield return new WaitForSeconds(1.0f);
-        _hasChangedRecently = false;
+        speed *= -1;
+        _FlipHorizontally();
     }
-
+    private void _Movement()
+    {
+        if (physics.isCollision)
+        {
+            rb.velocity = new Vector2(speed, 0);
+        }
+    }
     private void _FlipHorizontally()
     {
         Vector2 Scaler = transform.localScale;
         Scaler.x *= -1;
         transform.localScale = Scaler;
     }
-
 }
