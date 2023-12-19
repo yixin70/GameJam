@@ -152,9 +152,9 @@ MonoBehaviour:
   isCollision: 0
   checkGroundRadius: 0.2
   checkGroundOffset: {x: 0, y: 0}
-  groundLayer:
+  checkLayers:
     serializedVersion: 2
-    m_Bits: 384
+    m_Bits: 128
   groundMaterial: {fileID: 0}
 --- !u!114 &7780073801871399089
 MonoBehaviour:
