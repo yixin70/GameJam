@@ -165,9 +165,9 @@ MonoBehaviour:
   isCollision: 0
   checkGroundRadius: 0.2
   checkGroundOffset: {x: 0, y: 0}
-  groundLayer:
+  checkLayers:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 128
   groundMaterial: {fileID: 0}
 --- !u!70 &3735126477782535593
 CapsuleCollider2D:
