@@ -223,7 +223,7 @@ MonoBehaviour:
   initialJumpForce: 40
   scaledSpeed: 1
   jumpCount: 0
-  initialHealth: 1
+  initialHealth: 3
   health: 0
   groundMaterial: {fileID: 6200000, guid: 3e9e3114c883c9340871b65d32574cab, type: 2}
   rb: {fileID: 0}

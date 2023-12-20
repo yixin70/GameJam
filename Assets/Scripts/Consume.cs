@@ -9,6 +9,7 @@ public class Consume : MonoBehaviour
     private InputActions consumeAction;
     private PlayerController playerController;
     private PlayerCollision playerCollision;
+    public FruitType currentConsumeFruit;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,20 +27,21 @@ public class Consume : MonoBehaviour
         ConsumeFruit(FruitType.Strawberry);
     }
 
-    private void Consume2(InputAction.CallbackContext context) // Banana Become small
-    {
-        ConsumeFruit(FruitType.Banana);
-    }
-
-    private void Consume1(InputAction.CallbackContext context) //Apple Become Big
+    private void Consume2(InputAction.CallbackContext context) //Apple Become Big
     {
         ConsumeFruit(FruitType.Apple);
     }
-    private void ConsumeFruit(FruitType type)
+
+    private void Consume1(InputAction.CallbackContext context) // Banana Become small
+    {
+        ConsumeFruit(FruitType.Banana);
+    }
+    private void ConsumeFruit(FruitType consumeType)
     {
         foreach (FruitData fruit in playerCollision.fruitList) {
-            if (fruit.type==type&&fruit.count>0)
+            if (currentConsumeFruit!=consumeType&&fruit.type==consumeType&&fruit.count>0)
             {
+                currentConsumeFruit=consumeType;
                 fruit.count--;
                 Debug.Log("Consume: " + fruit.type);
                 playerController.ChangScale(fruit.power);

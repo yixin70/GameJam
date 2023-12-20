@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Apple
   m_EditorClassIdentifier: 
   type: 0
-  count: 239
+  count: 10
   power: 0.7
   score: 1

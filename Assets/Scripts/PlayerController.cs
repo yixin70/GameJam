@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float initialMoveSpeed = 60, initialJumpForce = 40, scaledSpeed = 1;
-    [SerializeField] private int jumpCount, initialHealth=1;
+    [SerializeField] private int jumpCount, initialHealth;
     private float horizontalMove, moveSpeed, jumpForce;
     public int health;
     private Vector3 scale;
