@@ -10,7 +10,7 @@ Abre la carpeta con UNITY y abre la escena *init* situado en *GameJam-VersionFin
     * Presionar número 2 para agrandar el personaje.
     * Persionar número 3 para volver a la escala normal.
 ## Enemigos 
-Encontrará 3 enemigos durante la trayectoria:
+Encontrarás 3 enemigos durante la trayectoria:
 * Rhino: realiza un movimiento en horizontal.
 * Bunny: salta mientras recorre la trayectoria.
 * Tortoise: persigue al personaje mientras esté en su rango de detección.
