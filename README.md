@@ -14,3 +14,4 @@ Encontrarás 3 enemigos durante la trayectoria:
 * Rhino: realiza un movimiento en horizontal.
 * Bunny: salta mientras recorre la trayectoria.
 * Tortoise: persigue al personaje mientras esté en su rango de detección.
+# GameJam
